@@ -448,14 +448,20 @@
       background-color: #ffffff;
     }
 
-    @media (min-width: 768px) {
-      .hero-title {
-        font-size: 32px;
-      }
-      .hero-subtitle {
-        font-size: 16px;
-      }
-    }
+   @media (min-width: 768px) {
+  .hero-title {
+    font-size: 40px;        /* було 32px → збільшуємо */
+    line-height: 1.25;      /* щоб текст виглядав чистіше */
+    margin: 12px 0 10px;     /* трохи більше повітря */
+  }
+
+  .hero-subtitle {
+    font-size: 18px;        /* було 16px → комфортніше для 30+ */
+    max-width: 620px;       /* тримає читабельність */
+  }
+}
+
+      
      /* --- ЛОГОТИП SVG --- */
 .logo-svg {
     width: 420px;     /* розмір логотипу на великих екранах */
