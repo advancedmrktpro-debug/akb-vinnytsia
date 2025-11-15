@@ -77,10 +77,21 @@
       margin-bottom: 20px;
     }
 
-    .hero-logo img {
-      height: 56px; /* підлаштуй під своє лого */
-      width: auto;
-    }
+   /* Логотип — адаптивний */
+.hero-logo img {
+  width: 420px;     /* великий розмір для компʼютера */
+  max-width: 90%;   /* щоб не вилізав за екран */
+  height: auto;     /* пропорції SVG збережені */
+  margin-bottom: 12px;
+}
+
+/* Мобільна версія */
+@media (max-width: 480px) {
+  .hero-logo img {
+    width: 260px;     /* нормальний розмір на телефонах */
+  }
+}
+
 
     .hero-slogan {
       font-size: 14px;
