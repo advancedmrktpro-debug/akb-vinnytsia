@@ -1,12 +1,683 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>АКБ Вінниця</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>АКБ Вінниця – акумулятори у Вінниці</title>
+  <meta name="description" content="АКБ Вінниця: продаж, зарядка та відновлення автомобільних акумуляторів у Вінниці. Телефонуйте, щоб дізнатись актуальну ціну та наявність.">
+
+  <!-- FAVICONS (заміни імена файлів під свої, якщо інші) -->
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_180.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="favicon_256.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon_512.png">
+
+  <!-- Шрифт -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-page: #f3f4f6;     /* світлий фон сторінки */
+      --bg-main: #ffffff;     /* фон карток/секцій */
+      --bg-hero: #ffffff;     /* фон херо-блоку */
+      --bg-hero-accent: #e5f9f0;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border-soft: #e5e7eb;
+      --accent: #22c55e;
+      --accent-soft: #bbf7d0;
+      --accent-dark: #16a34a;
+      --brand-dark: #0f172a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* HERO */
+
+    .hero {
+      background-color: var(--bg-hero);
+      padding: 24px 16px 40px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .hero-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-logo {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .hero-logo img {
+      height: 56px; /* підлаштуй під своє лого */
+      width: auto;
+    }
+
+    .hero-slogan {
+      font-size: 14px;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 8px 0 6px;
+      letter-spacing: 0.03em;
+      color: var(--brand-dark);
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin: 0 auto 18px;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 600;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+      background-color: var(--accent);
+      color: #052e16;
+      box-shadow: 0 10px 25px rgba(34, 197, 94, 0.25);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(34, 197, 94, 0.35);
+      background-color: var(--accent-dark);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--brand-dark);
+      border: 1px solid var(--border-soft);
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background-color: var(--bg-hero-accent);
+      border-color: var(--accent);
+      color: var(--brand-dark);
+    }
+
+    .hero-note {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* MAIN */
+
+    main {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 32px 16px 80px;
+    }
+
+    section {
+      margin-bottom: 52px;
+    }
+
+    .tagline {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent-dark);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--brand-dark);
+    }
+
+    .section-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+      max-width: 560px;
+    }
+
+    /* GRID & CARDS */
+
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .card {
+      background-color: var(--bg-main);
+      border-radius: 16px;
+      padding: 18px 18px 20px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.03);
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-title span.icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background-color: var(--accent-soft);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: #166534;
+      flex-shrink: 0;
+    }
+
+    .card-text {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* STOCK LIST */
+
+    .stock-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 12px;
+    }
+
+    .stock-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      padding: 4px 0;
+    }
+
+    .stock-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background-color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .stock-note {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* CONTACTS */
+
+    .contacts-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .contacts-grid {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.5fr);
+      }
+    }
+
+    .contacts-block {
+      background-color: var(--bg-main);
+      border-radius: 16px;
+      padding: 20px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.03);
+      font-size: 14px;
+    }
+
+    .contacts-block h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+    }
+
+    .contacts-row {
+      margin-bottom: 8px;
+    }
+
+    .contacts-label {
+      display: inline-block;
+      min-width: 72px;
+      color: var(--text-muted);
+    }
+
+    .map-embed {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      background: #e5e7eb;
+    }
+
+    .map-embed iframe {
+      border: 0;
+      width: 100%;
+      height: 260px;
+    }
+
+    @media (min-width: 768px) {
+      .map-embed iframe {
+        height: 100%;
+        min-height: 260px;
+      }
+    }
+
+    /* PHOTOS */
+
+    .photos-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    @media (min-width: 768px) {
+      .photos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .photo-card {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      background-color: #e5e7eb;
+      min-height: 180px;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .link-review {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: #2563eb;
+      margin-top: 10px;
+    }
+
+    /* BOTTOM CTA */
+
+    .bottom-cta {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 8px 16px 14px;
+      background: linear-gradient(to top, rgba(243, 244, 246, 0.98), rgba(243, 244, 246, 0));
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 50;
+    }
+
+    .bottom-cta-inner {
+      pointer-events: auto;
+    }
+
+    .btn-pulse {
+      position: relative;
+      overflow: visible;
+    }
+
+    .btn-pulse::after {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border-radius: inherit;
+      border: 2px solid rgba(34, 197, 94, 0.4);
+      opacity: 0;
+      animation: pulse 1.9s ease-out infinite;
+    }
+
+    @keyframes pulse {
+      0%   { transform: scale(1); opacity: 0.7; }
+      70%  { transform: scale(1.25); opacity: 0; }
+      100% { transform: scale(1.25); opacity: 0; }
+    }
+
+    /* SCROLL ANIMATIONS */
+
+    .fade-section {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    }
+
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* FOOTER */
+
+    footer {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: center;
+      padding: 16px 16px 70px;
+      border-top: 1px solid var(--border-soft);
+      background-color: #ffffff;
+    }
+
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 32px;
+      }
+      .hero-subtitle {
+        font-size: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>АКБ Вінниця — сайт у розробці</h1>
-    <p>Все працює! Далі зробимо повноцінний сайт.</p>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-logo">
+        <!-- Заміни src на свій логотип -->
+        <img src="images/logo-akb-vinnytsia.png" alt="АКБ Вінниця – продаж, зарядка та відновлення акумуляторів у Вінниці">
+        <div class="hero-slogan">Продаж • Зарядка • Відновлення</div>
+      </div>
+
+      <h1 class="hero-title">АКБ Вінниця</h1>
+      <p class="hero-subtitle">
+        Магазин автомобільних акумуляторів у Вінниці. Підберемо АКБ під ваш автомобіль та умови експлуатації, допоможемо з зарядкою й відновленням.
+      </p>
+
+      <div class="hero-cta">
+        <a href="tel:+380674306884" class="btn">
+          📞 Подзвонити зараз
+        </a>
+        <a href="tel:+380674306884" class="btn btn-outline">
+          Отримати консультацію
+        </a>
+        <div class="hero-note">
+          Телефонуйте, щоб дізнатись актуальну ціну та наявність акумуляторів.
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- НАШІ ПОСЛУГИ -->
+    <section id="services" class="fade-section">
+      <div class="tagline">Послуги</div>
+      <h2 class="section-title">Що ми робимо</h2>
+      <p class="section-subtitle">
+        Допоможемо підібрати, зарядити або відновити акумулятор під ваш автомобіль та режим використання.
+      </p>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="card-title">
+            <span class="icon">🔋</span>
+            Продаж акумуляторів
+          </div>
+          <p class="card-text">
+            Підберемо АКБ під конкретну марку та модель авто. Пояснимо різницю між брендами, ємністю та пусковим струмом, щоб ви не переплачували.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-title">
+            <span class="icon">⚡</span>
+            Зарядка АКБ
+          </div>
+          <p class="card-text">
+            Професійна зарядка акумуляторів на обладнанні з контролем напруги та струму. Без “кустарних” методів, які шкодять батареї.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-title">
+            <span class="icon">🛠️</span>
+            Відновлення ресурсу
+          </div>
+          <p class="card-text">
+            Діагностика стану АКБ та відновлювальні процедури там, де це доцільно. Чесно скажемо, коли краще змінити акумулятор на новий.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ЧОМУ МИ -->
+    <section id="why-us" class="fade-section">
+      <div class="tagline">Переваги</div>
+      <h2 class="section-title">Чому нас обирають у Вінниці</h2>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="card-title">
+            <span class="icon">✅</span>
+            Підбір під ваш автомобіль
+          </div>
+          <p class="card-text">
+            Не продаємо просто “що є на складі”. Запитуємо марку, модель, тип двигуна та умови експлуатації й підбираємо АКБ саме під ваш автомобіль.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-title">
+            <span class="icon">📦</span>
+            Актуальна наявність на складі
+          </div>
+          <p class="card-text">
+            Кожного дня оновлюємо склад. Замість “треба почекати” – відразу кажемо, які моделі є в наявності тут і зараз.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-title">
+            <span class="icon">🧰</span>
+            Продаж, зарядка та відновлення
+          </div>
+          <p class="card-text">
+            Повний цикл роботи з акумуляторами: від підбору та продажу до зарядки та відновлення. Усі питання вирішуємо в одному місці.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-title">
+            <span class="icon">📝</span>
+            Гарантія на всі акумулятори
+          </div>
+          <p class="card-text">
+            Працюємо з перевіреними постачальниками. Надаємо офіційні гарантійні зобов’язання на кожен акумулятор.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ПОСТІЙНО В НАЯВНОСТІ -->
+    <section id="stock" class="fade-section">
+      <div class="tagline">Асортимент</div>
+      <h2 class="section-title">Постійно в наявності</h2>
+
+      <div class="card">
+        <ul class="stock-list">
+          <li><span class="stock-dot"></span>АКБ для легкових авто</li>
+          <li><span class="stock-dot"></span>АКБ для дизельних авто</li>
+          <li><span class="stock-dot"></span>Акумулятори під Start-Stop</li>
+          <li><span class="stock-dot"></span>АКБ для мікроавтобусів та бусів</li>
+          <li><span class="stock-dot"></span>AGM та GEL акумулятори</li>
+          <li><span class="stock-dot"></span>Високострумові акумулятори</li>
+        </ul>
+        <p class="stock-note">
+          Телефонуйте — підкажемо, який акумулятор підійде саме вам та чи є він в наявності.
+        </p>
+        <a href="tel:+380674306884" class="btn" style="margin-top:10px;">
+          📞 Дізнатись наявність
+        </a>
+      </div>
+    </section>
+
+    <!-- ФОТО -->
+    <section id="photos" class="fade-section">
+      <div class="tagline">Живий магазин</div>
+      <h2 class="section-title">Як нас знайти</h2>
+      <p class="section-subtitle">
+        На фото – реальний магазин та вхід. Можете орієнтуватися на фасад, коли приїдете за акумулятором.
+      </p>
+
+      <div class="photos-grid">
+        <div class="photo-card">
+          <!-- ЗАМІНИ НА СПРАВЖНЄ ФОТО З GOOGLE MY BUSINESS -->
+          <img src="images/shop-front.jpg" alt="Магазин АКБ Вінниця – фасад">
+        </div>
+        <div class="photo-card">
+          <img src="images/shop-inside.jpg" alt="Магазин АКБ Вінниця – полиці з акумуляторами">
+        </div>
+      </div>
+
+      <!-- ЗАМІНИ href НА СПРАВЖНЄ ПОСИЛАННЯ НА ВІДГУКИ В GOOGLE -->
+      <a class="link-review" href="https://www.google.com/maps" target="_blank" rel="noopener">
+        ⭐ Залишити відгук про магазин у Google
+      </a>
+    </section>
+
+    <!-- КОНТАКТИ -->
+    <section id="contacts" class="fade-section">
+      <div class="tagline">Контакти</div>
+      <h2 class="section-title">Контакти та графік роботи</h2>
+
+      <div class="contacts-grid">
+        <div class="contacts-block">
+          <h3>Магазин АКБ Вінниця</h3>
+
+          <div class="contacts-row">
+            <span class="contacts-label">Адреса:</span>
+            Праведників Світу 33, Вінниця
+          </div>
+
+          <div class="contacts-row">
+            <span class="contacts-label">Телефон:</span>
+            <a href="tel:+380674306884">+380 67 430 6884</a>
+          </div>
+
+          <div class="contacts-row">
+            <span class="contacts-label">Графік:</span>
+            Пн–Пт: 09:30–17:30<br>
+            Сб–Нд: вихідні
+          </div>
+
+          <div class="contacts-row">
+            <span class="contacts-label">Оплата:</span>
+            Готівка, можливі безготівкові варіанти (уточнюйте по телефону)
+          </div>
+
+          <div style="margin-top:14px;">
+            <a href="tel:+380674306884" class="btn">
+              📞 Подзвонити в магазин
+            </a>
+          </div>
+        </div>
+
+        <div class="map-embed">
+          <!-- ВСТАВ СЮДИ EMBED-КОД З GOOGLE MAPS ДЛЯ АДРЕСИ -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb="
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- STICKY CTA ВНИЗУ -->
+  <div class="bottom-cta">
+    <div class="bottom-cta-inner">
+      <a href="tel:+380674306884" class="btn btn-pulse">
+        📞 Подзвонити зараз
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    © <span id="year"></span> АКБ Вінниця. Продаж, зарядка та відновлення акумуляторів у Вінниці.
+  </footer>
+
+  <script>
+    // поточний рік у підвалі
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // анімація появи секцій при скролі
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    document.querySelectorAll(".fade-section").forEach((section) => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
