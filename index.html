@@ -445,6 +445,17 @@
         font-size: 16px;
       }
     }
+     /* --- ЛОГОТИП SVG --- */
+.logo-svg {
+    width: 420px;     /* розмір логотипу на великих екранах */
+    max-width: 90%;   /* адаптивність */
+    height: auto;     /* зберігає пропорції */
+}
+
+@media (max-width: 480px) {
+    .logo-svg {
+        width: 260px; /* розмір логотипу на телефонах */
+    }
   </style>
 </head>
 <body>
@@ -452,11 +463,11 @@
   <!-- HERO -->
   <header class="hero">
     <div class="hero-inner">
-      <div class="hero-logo">
-        <!-- Заміни src на свій логотип -->
-        <img src="images/logo-akb-vinnytsia.png" alt="АКБ Вінниця – продаж, зарядка та відновлення акумуляторів у Вінниці">
-        <div class="hero-slogan">Продаж • Зарядка • Відновлення</div>
-      </div>
+     <div class="hero-logo">
+    <img src="images/logo-akb-vinnytsia.svg" 
+         alt="АКБ Вінниця — продаж, зарядка та відновлення акумуляторів" 
+         class="logo-svg">
+</div>
 
       <h1 class="hero-title">АКБ Вінниця</h1>
       <p class="hero-subtitle">
