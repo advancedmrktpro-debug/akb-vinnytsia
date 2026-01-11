@@ -23,7 +23,7 @@
       --bg-page: #f3f4f6;     /* світлий фон сторінки */
       --bg-main: #ffffff;     /* фон карток/секцій */
       --bg-hero: #ffffff;     /* фон херо-блоку */
-      --bg-hero-accent: #ecfdf5;
+      --bg-hero-accent: #dff5ec;
       --text-main: #111827;
       --text-muted: #6b7280;
       --border-soft: #e5e7eb;
@@ -58,10 +58,15 @@
     /* HERO */
 
     .hero {
-  background-color: var(--bg-hero);
-  padding: 48px 16px 64px;
+  background: linear-gradient(
+    180deg,
+    var(--bg-hero-accent) 0%,
+    #ffffff 70%
+  );
+  padding: 64px 16px 72px;
   border-bottom: 1px solid var(--border-soft);
 }
+
 
     @media (min-width: 1024px) {
   .hero {
