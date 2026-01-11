@@ -58,10 +58,16 @@
     /* HERO */
 
     .hero {
-      background-color: var(--bg-hero);
-      padding: 24px 16px 40px;
-      border-bottom: 1px solid var(--border-soft);
-    }
+  background-color: var(--bg-hero);
+  padding: 48px 16px 64px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+    @media (min-width: 1024px) {
+  .hero {
+    padding: 72px 16px 96px;
+  }
+}
 
     .hero-inner {
       max-width: 1040px;
