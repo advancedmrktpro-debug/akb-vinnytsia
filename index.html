@@ -494,17 +494,23 @@ align-items: center;
     /* BOTTOM CTA */
 
     .bottom-cta {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 8px 16px 14px;
-      background: linear-gradient(to top, rgba(243, 244, 246, 0.98), rgba(243, 244, 246, 0));
-      display: flex;
-      justify-content: center;
-      pointer-events: none;
-      z-index: 50;
-    }
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 8px 16px 14px;
+  background: linear-gradient(to top, rgba(243, 244, 246, 0.98), rgba(243, 244, 246, 0));
+  display: none; /* ⬅️ ХОВАЄМО ЗА ЗАМОВЧУВАННЯМ */
+  justify-content: center;
+  pointer-events: none;
+  z-index: 50;
+}
+/* Show bottom CTA only on mobile */
+@media (max-width: 768px) {
+  .bottom-cta {
+    display: flex;
+  }
+}
 
     .bottom-cta-inner {
       pointer-events: auto;
