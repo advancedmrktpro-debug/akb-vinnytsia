@@ -504,7 +504,15 @@ align-items: center;
   justify-content: center;
   pointer-events: none;
   z-index: 50;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
+    /* Hide bottom CTA when contacts are visible */
+.bottom-cta.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+}
+
 /* Show bottom CTA only on mobile */
 @media (max-width: 768px) {
   .bottom-cta {
@@ -847,6 +855,24 @@ align-items: center;
     document.querySelectorAll(".fade-section").forEach((section) => {
       observer.observe(section);
     });
+    // hide bottom CTA when contacts are visible (mobile UX)
+const bottomCta = document.querySelector(".bottom-cta");
+const contactsSection = document.querySelector("#contacts");
+
+if (bottomCta && contactsSection) {
+  const ctaObserver = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        bottomCta.classList.add("hidden");
+      } else {
+        bottomCta.classList.remove("hidden");
+      }
+    },
+    { threshold: 0.3 }
+  );
+
+  ctaObserver.observe(contactsSection);
+}
   </script>
 </body>
 </html>
