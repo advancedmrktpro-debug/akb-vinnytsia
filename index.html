@@ -100,8 +100,7 @@ align-items: center;
   }
 }
    .hero-logo {
--  display: inline-flex;
-+  display: flex;
+  display: flex;
    flex-direction: column;
    align-items: center;
    gap: 10px;
@@ -113,19 +112,7 @@ align-items: center;
 }
 
    /* Логотип — адаптивний */
-.hero-logo img {
-  width: 420px;     /* великий розмір для компʼютера */
-  max-width: 90%;   /* щоб не вилізав за екран */
-  height: auto;     /* пропорції SVG збережені */
-  margin-bottom: 12px;
-}
 
-/* Мобільна версія */
-@media (max-width: 480px) {
-  .hero-logo img {
-    width: 260px;     /* нормальний розмір на телефонах */
-  }
-}
 
 
     .hero-slogan {
@@ -803,7 +790,7 @@ align-items: center;
       <div class="tagline">Контакти</div>
       <h2 class="section-title">Контакти та графік роботи</h2>
 
-      <div class="contacts-grid">
+      <div class="map-embed">
         <div class="contacts-block">
           <h3>Магазин АКБ Вінниця</h3>
 
@@ -835,13 +822,17 @@ align-items: center;
           </div>
         </div>
 
-        <div class="map-embed">
-          <!-- ВСТАВ СЮДИ EMBED-КОД З GOOGLE MAPS ДЛЯ АДРЕСИ -->
-          <iframe
-            src="https://www.google.com/maps/embed?pb="
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+     <div class="map-embed">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d83356.42748083283!2d28.343411570817807!3d49.24060582423501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x472d5cf35d8cdb2b%3A0xcb069b87032b5c17!2sVidnovlennya%20Akumulyatoriv%2C%20Prodazh!5e0!3m2!1spl!2spl!4v1768767172560!5m2!1spl!2spl"
+    style="border:0;"
+    allowfullscreen
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+
         </div>
       </div>
     </section>
