@@ -327,13 +327,28 @@ align-items: center;
     }
 
     .tagline {
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--accent-dark);
-      margin-bottom: 6px;
-    }
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--brand-dark);
+  text-align: center;
+  margin-bottom: 24px;
+}
+    
+.tagline::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
+  margin: 16px auto 0;
+  border-radius: 2px;
+}
+    
+    #services {
+  padding-top: 64px;
+}
 
     .section-title {
       font-size: 22px;
@@ -701,9 +716,6 @@ align-items: center;
     <!-- НАШІ ПОСЛУГИ -->
     <section id="services" class="fade-section">
       <div class="tagline">Послуги</div>
-      <h2 class="section-title">Що ми робимо</h2>
-      <p class="section-subtitle">
-        Допоможемо підібрати, зарядити або відновити акумулятор під ваш автомобіль та режим використання.
       </p>
 
       <div class="grid grid-3">
