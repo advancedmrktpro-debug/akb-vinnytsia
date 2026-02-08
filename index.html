@@ -670,6 +670,38 @@ align-items: center;
   margin-left: auto;
   margin-right: auto;
 }
+/* === REVIEW BUTTON === */
+.review-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.review-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 2px solid var(--accent);
+  color: var(--accent-dark);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.review-btn:hover {
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+
+.review-btn .stars {
+  color: #f59e0b; /* теплий жовтий */
+  font-size: 16px;
+  letter-spacing: 1px;
+}
 
   </style>
 
@@ -804,9 +836,15 @@ align-items: center;
   target="_blank"
   rel="noopener"
 >
-  <a class="review-btn" href="https://www.google.com/maps" target="_blank" rel="noopener">
-  ⭐⭐⭐⭐⭐ Залишити відгук у Google
-</a>
+ <div class="review-wrapper">
+  <a class="review-btn" 
+     href="https://www.google.com/maps" 
+     target="_blank" 
+     rel="noopener">
+    <span class="stars">★★★★★</span>
+    <span class="text">Залишити відгук у Google</span>
+  </a>
+</div>
 
 </a>
 
