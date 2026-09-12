@@ -496,7 +496,52 @@ align-items: center;
       min-width: 72px;
       color: var(--text-muted);
     }
+.stores-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 18px;
+}
 
+.store-location {
+  border: 1px solid var(--border-soft);
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+  background: #fff;
+}
+
+.store-address {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--brand-dark);
+  margin-bottom: 14px;
+}
+
+.store-hours {
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.store-route {
+  display: inline-block;
+}
+
+.store-phone {
+  margin-top: 22px;
+  text-align: center;
+}
+
+.store-phone .btn {
+  display: inline-block;
+  margin-top: 12px;
+}
+
+@media (max-width: 767px) {
+  .stores-grid {
+    grid-template-columns: 1fr;
+  }
+}
     .map-embed {
       border-radius: 16px;
       overflow: hidden;
@@ -936,26 +981,59 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        <div class="contacts-block">
   <h3>Наші магазини у Вінниці</h3>
 
-  <div class="contacts-row">
-    <span class="contacts-label">📍 Праведників світу, 33</span>
+  <div class="stores-grid">
+
+    <div class="store-location">
+      <div class="store-address">📍 Праведників світу, 33</div>
+
+      <div class="store-hours">
+        <strong>Графік:</strong><br>
+        Пн–Пт: 09:30–17:30<br>
+        Сб–Нд: вихідні
+      </div>
+
+      <a
+        href="https://maps.app.goo.gl/wBJjGMLACn5UFJPDA"
+        class="btn store-route"
+        target="_blank"
+        rel="noopener"
+        id="route-pravednykiv">
+        📍 Прокласти маршрут
+      </a>
+    </div>
+
+    <div class="store-location">
+      <div class="store-address">📍 Миколи Битинського, 40</div>
+
+      <div class="store-hours">
+        <strong>Графік:</strong><br>
+        Пн–Пт: 09:30–17:30<br>
+        Сб–Нд: вихідні
+      </div>
+
+      <a
+        href="https://maps.app.goo.gl/ALg6k1PXAgUkb8Pr9"
+        class="btn store-route"
+        target="_blank"
+        rel="noopener"
+        id="route-bytynskoho">
+        📍 Прокласти маршрут
+      </a>
+    </div>
+
   </div>
 
-  <div class="contacts-row">
-    <span class="contacts-label">Графік:</span>
-    Пн–Пт: 09:30–17:30<br>
-    Сб–Нд: вихідні
-  </div>
+  <div class="store-phone">
+    <div>
+      <span class="contacts-label">Телефон:</span>
+      <a href="tel:+380674306884">+380 67 430 6884</a>
+    </div>
 
-  <div style="margin: 10px 0 22px;">
-    <a
-      href="https://maps.app.goo.gl/wBJjGMLACn5UFJPDA"
-      class="btn"
-      target="_blank"
-      rel="noopener"
-      id="route-pravednykiv">
-      📍 Прокласти маршрут
+    <a href="tel:+380674306884" class="btn" id="phone-store">
+      📞 Подзвонити
     </a>
   </div>
+</div>
 
   <div class="contacts-row">
     <span class="contacts-label">📍 Миколи Битинського, 40</span>
@@ -992,7 +1070,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="map-embed">
   <iframe
-    src="https://www.google.com/maps/d/embed?mid=1Jr28540A3RYmLVsUhFF1ewqW7dcBXkE&ehbc=2E312F&noprof=1"
+    src="https://www.google.com/maps/d/embed?mid=1Jr28540A3RYmLVsUhFF1ewqW7dcBXkE&ehbc=2E312F&noprof=1&hl=uk"
     style="border:0;"
     allowfullscreen
     loading="lazy"
