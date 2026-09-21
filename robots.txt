@@ -2,4 +2,4 @@ User-agent: *
 
 Allow: /
 
-Sitemap: https://advancedmrktpro-debug.github.io/akb-vinnytsia/sitemap.xml
+Sitemap: https://akbvinnytsia.com.ua/sitemap.xml
